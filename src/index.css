@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Fuentes self-hosted (subset latin) — ver public/assets/fonts */
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/josefin-sans-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/josefin-sans-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/josefin-sans-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-700italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/caveat-600.woff2") format("woff2");
+}
+
+@theme {
+  --color-crema: #f4ebd7;
+  --color-crema-2: #eadfc4;
+  --color-papel: #fbf6ea;
+  --color-verde: #1f4d34;
+  --color-pizarra: #1b3a2b;
+  --color-madera: #7a5535;
+  --color-tinta: #2a1a12;
+  --color-suave: #5a4636;
+  --color-naranja: #ba3a25;
+  --color-miel: #f1c165;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-ink: #0b2e1a;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Josefin Sans", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --radius-arc: 170px 170px 28px 28px;
+  --shadow-hard: 5px 5px 0 0 var(--color-tinta);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-crema);
+    color: var(--color-tinta);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  ::selection {
+    background-color: var(--color-miel);
+    color: var(--color-tinta);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-naranja);
+    outline-offset: 2px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-miel);
+    color: var(--color-tinta);
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    left: 1.25rem;
+    top: 1.25rem;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chalk-rule {
+    border-bottom: 1px dotted rgb(241 193 101 / 45%);
+  }
+}
