@@ -34,7 +34,7 @@ export default function Popular() {
 
         <div className="relative max-w-3xl mx-auto w-full">
           <div
-            className="relative aspect-[3/4] md:aspect-[16/10] lg:aspect-[16/8] rounded-3xl border-2 border-tinta bg-papel shadow-hard overflow-hidden"
+            className="relative aspect-4/3 md:aspect-16/10 lg:aspect-16/8 rounded-3xl border-2 border-tinta bg-papel shadow-hard overflow-hidden"
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
             role="group"
