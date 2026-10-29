@@ -74,7 +74,7 @@ export default function Popular() {
               type="button"
               onClick={prev}
               aria-label="Plato anterior"
-              className="absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+              className="absolute left-2 md:-left-5 top-4 md:top-1/2 md:-translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
             >
               <ChevronLeftIcon />
             </button>
@@ -82,7 +82,7 @@ export default function Popular() {
               type="button"
               onClick={next}
               aria-label="Plato siguiente"
-              className="absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+              className="absolute right-2 md:-right-5 top-4 md:top-1/2 md:-translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
             >
               <ChevronRightIcon />
             </button>
