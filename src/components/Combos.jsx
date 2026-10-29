@@ -12,7 +12,7 @@ export default function Combos() {
           {combos.map((combo) => (
             <article
               key={combo.id}
-              className="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-auto rounded-2xl border-2 border-tinta bg-papel shadow-hard p-6 flex flex-col gap-3"
+              className="snap-start snap-always shrink-0 w-[78%] sm:w-[60%] md:w-auto rounded-2xl border-2 border-tinta bg-papel shadow-hard p-6 flex flex-col gap-3"
             >
               <span className="inline-flex w-fit items-center rounded-full bg-verde text-crema text-[11px] font-bold tracking-widest uppercase px-3 py-1">
                 Combo
