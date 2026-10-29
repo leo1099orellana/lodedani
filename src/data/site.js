@@ -4,26 +4,26 @@
 export const site = {
   brand: 'Lo de Dani',
   tagline: 'Casa de comidas · Delivery',
-  domain: 'https://lodedani.com.ar', // [Dominio] placeholder — reemplazar por el dominio real
-  locality: '[partido/ciudad]', // [Confirmar localidad y partido exacto]
+  domain: 'https://lodedani.com.ar', // [Dominio] placeholder — comprar la semana que viene y actualizar
+  locality: 'Gutiérrez, Berazategui',
   address: {
-    street: '[Dirección del local]',
-    locality: '[partido/ciudad]',
+    street: 'Camino Real Norte 1824',
+    locality: 'Gutiérrez, Berazategui',
     region: 'Buenos Aires',
     country: 'AR',
   },
   phoneDisplay: '11 2317-3941',
   whatsappNumber: '5491123173941',
   whatsappBaseMessage: 'Hola! Quiero hacer un pedido',
-  instagram: '[@usuario]',
-  instagramUrl: 'https://www.instagram.com/[usuario]',
-  facebookUrl: '',
+  instagram: '@lodedani_casadecomidas',
+  instagramUrl: 'https://www.instagram.com/lodedani_casadecomidas',
+  facebookUrl: '', // pendiente — crear página de Facebook
   schedule: {
     days: 'Martes a domingo',
-    hours: '11 a 15 h y 19 a 23 h',
+    hours: '12 a 15 h y 20 a 00 h',
   },
   deliveryAreas: ['Juan María Gutiérrez', 'El Carmen', 'El Mirador'],
-  yearsCooking: '[X]',
+  yearsCooking: '6',
 
   seo: {
     title: 'Lo de Dani | Casa de comidas y delivery en J. M. Gutiérrez',

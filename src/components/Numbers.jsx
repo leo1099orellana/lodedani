@@ -2,7 +2,7 @@ import { site } from '../data/site.js';
 import PlaceholderImage from './PlaceholderImage.jsx';
 
 const STATS = [
-  { value: `[${site.yearsCooking}]`, label: 'años de cocina' },
+  { value: site.yearsCooking, label: 'años de cocina' },
   { value: '3', label: 'barrios con delivery' },
   { value: '6', label: 'días a la semana' },
 ];

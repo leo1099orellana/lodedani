@@ -7,8 +7,12 @@ import SectionHeading from './SectionHeading.jsx';
 import { WhatsAppIcon, InstagramIcon, ClockIcon, PinIcon } from './icons.jsx';
 
 const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${site.brand} ${site.address.locality}`
+  `${site.brand} ${site.address.street}, ${site.address.locality}`
 )}`;
+
+const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${site.address.street}, ${site.address.locality}, ${site.address.region}, ${site.address.country}`
+)}&output=embed`;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', neighborhood: '', order: '' });
@@ -127,15 +131,13 @@ export default function Contact() {
             </div>
           </div>
 
-          {/*
-            [Mapa de Google con la ubicación] — placeholder hasta tener la dirección
-            confirmada. Para activarlo: reemplazar este bloque por un <iframe
-            loading="lazy"> con el embed real de Google Maps (Compartir > Insertar un
-            mapa) para la dirección definitiva.
-          */}
-          <div className="rounded-2xl border-2 border-dashed border-suave/50 bg-crema-2 flex items-center justify-center text-center text-suave text-sm p-6 min-h-40">
-            [Mapa de Google con la ubicación]
-          </div>
+          <iframe
+            title="Ubicación de Lo de Dani en el mapa"
+            src={mapsEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-2xl border-2 border-tinta w-full min-h-40"
+          />
         </div>
       </div>
     </section>

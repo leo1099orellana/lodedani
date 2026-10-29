@@ -40,13 +40,17 @@ export const menu = [
   {
     id: 'milanesas',
     title: 'Milanesas',
-    note: 'Común / grande',
+    note: '',
     items: [
-      { name: 'Sola', price: '$17.000 / $24.000' },
-      { name: 'A caballo', price: '$18.000 / $28.000' },
-      { name: 'Napolitana', price: '$20.000 / $30.000' },
-      { name: 'Napolitana con huevo', price: '$22.000 / $32.000' },
+      { name: 'Sola', price: '$17.000' },
+      { name: 'Sola grande', price: '$24.000' },
+      { name: 'A caballo', price: '$18.000' },
+      { name: 'A caballo grande', price: '$28.000' },
       { name: 'Jamón y queso', price: '$20.000' },
+      { name: 'Napolitana', price: '$20.000' },
+      { name: 'Napolitana grande', price: '$30.000' },
+      { name: 'Napolitana con huevo', price: '$22.000' },
+      { name: 'Napolitana grande con huevo', price: '$32.000' },
       { name: 'Napolitana con morrón', price: '$21.000' },
       { name: 'Cheddar, panceta y verdeo', price: '$20.000' },
       { name: 'Muzzarella, panceta y verdeo', price: '$20.000' },
@@ -86,20 +90,10 @@ export const menu = [
     ],
   },
   {
-    id: 'pollo',
-    title: 'Pollo al horno',
-    note: 'Con guarnición',
-    items: [
-      { name: 'Pollo entero', price: '[Precio]' },
-      { name: 'Pata y muslo', price: '$15.000' },
-    ],
-  },
-  {
     id: 'platos',
     title: 'Platos',
     note: 'Con fritas, puré o ensalada',
     items: [
-      { name: 'Milanesa de merluza', price: '$10.000' },
       { name: 'Bife de cerdo', price: '$13.000' },
       { name: 'Pollo a la plancha', price: '$15.000' },
     ],
@@ -109,7 +103,7 @@ export const menu = [
     title: 'Tortilla de papas',
     note: '',
     items: [
-      { name: 'Clásica', price: '$15.000' },
+      { name: 'De papas', price: '$15.000' },
       { name: 'Rellena con jamón y queso', price: '$18.000' },
     ],
   },

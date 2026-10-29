@@ -20,19 +20,19 @@ export const popular = [
     alt: 'Milanesa napolitana de Lo de Dani con muzzarella y jamón',
   },
   {
-    id: 'pollo-horno',
-    name: 'Pollo al horno',
-    description: 'Pata y muslo, con guarnición.',
-    price: '$15.000',
-    image: null,
-    alt: 'Pollo al horno de Lo de Dani con guarnición',
-  },
-  {
     id: 'hamburguesa-especial',
     name: 'Hamburguesa especial',
     description: 'Cheddar y panceta.',
     price: '$9.000',
     image: null,
     alt: 'Hamburguesa especial de Lo de Dani con cheddar y panceta',
+  },
+  {
+    id: 'sandwich-milanesa-lechuga-tomate',
+    name: 'Sándwich de milanesa',
+    description: 'Con lechuga y tomate, servido con papas.',
+    price: '$17.000',
+    image: '/assets/img/sandwich-milanesa-800.webp',
+    alt: 'Sándwich de milanesa con lechuga, tomate y papas de Lo de Dani',
   },
 ];

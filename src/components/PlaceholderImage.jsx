@@ -27,7 +27,7 @@ export default function PlaceholderImage({
         height={height}
         loading={priority ? undefined : 'lazy'}
         decoding={priority ? undefined : 'async'}
-        fetchPriority={priority ? 'high' : undefined}
+        fetchpriority={priority ? 'high' : undefined}
         className={`object-cover ${rounded} ${className}`}
       />
     );
