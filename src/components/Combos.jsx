@@ -1,4 +1,5 @@
 import { combos } from '../data/combos.js';
+import PlaceholderImage from './PlaceholderImage.jsx';
 import SectionHeading from './SectionHeading.jsx';
 import WhatsAppButton from './WhatsAppButton.jsx';
 
@@ -14,6 +15,18 @@ export default function Combos() {
               key={combo.id}
               className="snap-start snap-always shrink-0 w-[78%] sm:w-[60%] md:w-auto rounded-2xl border-2 border-tinta bg-papel shadow-hard p-6 flex flex-col gap-3"
             >
+              <div className="flex -mx-6 -mt-6 mb-2 h-36 rounded-t-[0.9rem] overflow-hidden border-b-2 border-tinta">
+                {combo.photos.map(({ photo, imageClass = '' }) => (
+                  <PlaceholderImage
+                    key={photo}
+                    fill
+                    alt=""
+                    photo={photo}
+                    sizes={combo.photos.length > 1 ? '160px' : '320px'}
+                    className={`min-w-0 flex-1 h-full ${imageClass}`}
+                  />
+                ))}
+              </div>
               <span className="inline-flex w-fit items-center rounded-full bg-verde text-crema text-[11px] font-bold tracking-widest uppercase px-3 py-1">
                 Combo
               </span>

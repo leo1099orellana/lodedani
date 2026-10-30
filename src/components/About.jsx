@@ -11,7 +11,7 @@ const CHIPS = [
 
 export default function About() {
   return (
-    <section id="nosotros" className="bg-crema px-5 md:px-12 py-20 md:py-28">
+    <section id="nosotros" className="bg-crema px-5 md:px-12 py-20 md:py-28 overflow-x-clip">
       <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="flex flex-col gap-6 order-2 md:order-1">
           <SectionHeading
@@ -44,8 +44,8 @@ export default function About() {
         <div className="relative order-1 md:order-2 mx-auto w-full max-w-sm">
           <div className="rounded-t-full rounded-b-3xl border-[6px] border-verde p-2">
             <PlaceholderImage
-              alt="Pizza de Lo de Dani con jamón, morrones y aceitunas"
-              photo="pizza-jamon-morron"
+              alt="Tarta individual de calabaza de Lo de Dani cortada al medio"
+              photo="tarta-calabaza"
               sizes="(min-width: 768px) 384px, 90vw"
               width={480}
               height={600}

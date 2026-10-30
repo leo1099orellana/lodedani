@@ -67,8 +67,8 @@ export default function HowToOrder() {
 
           <div className="mx-auto w-full max-w-xs rotate-2 bg-papel border-2 border-tinta shadow-hard p-3 pb-6">
             <PlaceholderImage
-              alt="Tarta de Lo de Dani en su caja, lista para el delivery"
-              photo="tarta-caja"
+              alt="Tres tartas individuales de Lo de Dani recién horneadas en sus moldes"
+              photo="tartas-individuales"
               sizes="320px"
               width={400}
               height={400}

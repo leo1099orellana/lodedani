@@ -42,7 +42,7 @@ Buscá `[corchetes]` en el código y reemplazá:
 - **Mapa de Google**: en `src/components/Contact.jsx` hay un bloque placeholder `[Mapa de Google con la ubicación]`; reemplazarlo por un `<iframe loading="lazy">` con el embed real una vez haya dirección confirmada (Google Maps → Compartir → Insertar un mapa).
 - **Instagram** (`[@usuario]`): `src/data/site.js` (`instagram`, `instagramUrl`) y el `sameAs` del JSON-LD en `index.html`.
 - **Años de cocina** (`[X]`): `src/data/site.js` (`yearsCooking`).
-- **Foto de Dani**: en `src/components/About.jsx` hoy hay una foto de pizza; reemplazarla si aparece una de Dani.
+- **Foto de Dani**: en `src/components/About.jsx` hoy hay una foto de tarta de calabaza; reemplazarla si aparece una de Dani.
 - **Reseñas reales** (opcional): cargarlas en `src/data/reviews.js`; mientras esté vacío, la sección no se muestra.
 - **IDs de GA4 / Meta Pixel**: `src/data/site.js` (`tracking.ga4Id`, `tracking.metaPixelId`). Mientras estén en `null` no se carga ningún script de terceros.
 
