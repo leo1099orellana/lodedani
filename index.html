@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1f4d34" />
 
+    <!-- Al volver a entrar, la página abre siempre arriba y no donde el navegador la dejó.
+         Un link directo a una sección (por ej. /#carta) se sigue respetando. -->
+    <script>
+      (function () {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        if (location.hash && nav && nav.type !== 'navigate') {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+        window.addEventListener('pageshow', function (e) {
+          if (!e.persisted) return;
+          if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        });
+      })();
+    </script>
+
     <title>Lo de Dani | Casa de comidas y delivery en J. M. Gutiérrez</title>
     <meta
       name="description"
@@ -84,7 +101,7 @@
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "20:00",
+            "opens": "19:00",
             "closes": "00:00"
           }
         ],
@@ -99,7 +116,7 @@
         <p><strong>Lo de Dani — Casa de comidas con delivery en J. M. Gutiérrez, El Carmen y El Mirador</strong></p>
       </header>
       <p>Teléfono / WhatsApp: 11 2317-3941</p>
-      <p>Horario: martes a domingo, 11 a 15 h y 20 a 00 h.</p>
+      <p>Horario: martes a domingo, 11 a 15 h y 19 a 00 h.</p>
       <p><strong>Carta resumida</strong></p>
       <ul>
         <li>Pizza muzzarella: $13.000</li>

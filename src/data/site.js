@@ -20,7 +20,7 @@ export const site = {
   facebookUrl: '', // pendiente — crear página de Facebook
   schedule: {
     days: 'Martes a domingo',
-    hours: '11 a 15 h y 20 a 00 h',
+    hours: '11 a 15 h y 19 a 00 h',
   },
   deliveryAreas: ['Juan María Gutiérrez', 'El Carmen', 'El Mirador'],
   yearsCooking: '6',
