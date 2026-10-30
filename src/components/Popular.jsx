@@ -80,22 +80,25 @@ export default function Popular() {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Plato anterior"
-              className="absolute left-2 md:-left-5 top-4 md:top-1/2 md:-translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
-            >
-              <ChevronLeftIcon />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Plato siguiente"
-              className="absolute right-2 md:-right-5 top-4 md:top-1/2 md:-translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
-            >
-              <ChevronRightIcon />
-            </button>
+            {/* En mobile esta capa mide lo mismo que la foto, así las flechas quedan centradas sobre ella */}
+            <div className="absolute inset-x-0 top-0 aspect-4/3 md:aspect-auto md:bottom-0 pointer-events-none">
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Plato anterior"
+                className="pointer-events-auto absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+              >
+                <ChevronLeftIcon />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Plato siguiente"
+                className="pointer-events-auto absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+              >
+                <ChevronRightIcon />
+              </button>
+            </div>
           </div>
 
           <p className="sr-only" aria-live="polite">{`Plato ${index + 1} de ${total}: ${slide.name}`}</p>
