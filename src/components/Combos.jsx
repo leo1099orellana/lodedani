@@ -5,7 +5,7 @@ import WhatsAppButton from './WhatsAppButton.jsx';
 
 export default function Combos() {
   return (
-    <section id="promos" className="bg-crema-2 px-5 md:px-12 py-20 md:py-28">
+    <section id="promos" className="bg-crema px-5 md:px-12 pt-10 md:pt-12 pb-20 md:pb-28">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Promos" title="Combos que" script="rinden." />
 

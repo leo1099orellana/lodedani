@@ -7,7 +7,7 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="preguntas" className="bg-crema-2 px-5 md:px-12 py-20 md:py-28">
+    <section id="preguntas" className="bg-crema px-5 md:px-12 py-20 md:py-28">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Preguntas frecuentes" title="Dudas" script="comunes." />
 

@@ -3,7 +3,6 @@ import { track } from '../lib/track.js';
 import { WhatsAppIcon } from './icons.jsx';
 
 const VARIANTS = {
-  whatsapp: 'bg-whatsapp text-whatsapp-ink hover:brightness-95',
   naranja: 'bg-naranja text-crema hover:brightness-110',
   crema: 'bg-crema text-tinta hover:bg-papel',
   outline: 'bg-transparent text-tinta hover:bg-tinta/5',
@@ -17,7 +16,7 @@ export default function WhatsAppButton({
   detail,
   origin,
   label = 'Pedir por WhatsApp',
-  variant = 'whatsapp',
+  variant = 'naranja',
   className = '',
   icon = true,
 }) {

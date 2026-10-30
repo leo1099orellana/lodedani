@@ -74,7 +74,7 @@ export default function Menu() {
         <WhatsAppButton
           origin="carta"
           label="Pedir por WhatsApp"
-          variant="whatsapp"
+          variant="naranja"
           className="mx-auto"
         />
       </div>

@@ -27,7 +27,7 @@ export default function FloatingWhatsApp() {
       rel="noopener noreferrer"
       onClick={() => track('click_whatsapp', { origin: 'flotante' })}
       aria-label="Pedir por WhatsApp"
-      className={`md:hidden fixed bottom-5 right-5 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-ink border-2 border-tinta shadow-hard transition-all duration-300 ${
+      className={`md:hidden fixed bottom-5 right-5 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-naranja text-crema border-2 border-tinta shadow-hard transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >

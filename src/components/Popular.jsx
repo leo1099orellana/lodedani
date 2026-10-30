@@ -28,7 +28,7 @@ export default function Popular() {
   const slide = popular[index];
 
   return (
-    <section id="populares" className="bg-crema-2 px-5 md:px-12 py-20 md:py-28">
+    <section id="populares" className="bg-crema px-5 md:px-12 pt-20 md:pt-28 pb-6 md:pb-8">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Los más pedidos" title="Lo que nunca falta" script="en la mesa" />
 
@@ -65,7 +65,7 @@ export default function Popular() {
                     origin="popular"
                     detail={`${slide.name} (${slide.price})`}
                     label="Pedir"
-                    variant="whatsapp"
+                    variant="naranja"
                   />
                 </div>
               </div>
@@ -90,26 +90,24 @@ export default function Popular() {
           </div>
 
           <p className="sr-only" aria-live="polite">{`Plato ${index + 1} de ${total}: ${slide.name}`}</p>
-          <p className="text-center mt-4 font-display font-bold text-tinta" aria-hidden="true">
-            {index + 1} / {total}
-          </p>
-        </div>
-
-        <div className="flex justify-center gap-3 flex-wrap">
-          {popular.map((item, i) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => go(i)}
-              aria-label={`Ver ${item.name}`}
-              aria-current={i === index}
-              className={`w-16 h-16 shrink-0 rounded-xl border-2 overflow-hidden transition-colors ${
-                i === index ? 'border-naranja' : 'border-tinta/30'
-              }`}
-            >
-              <PlaceholderImage fill alt="" photo={item.photo} sizes="64px" className="w-full h-full" />
-            </button>
-          ))}
+          <div className="flex justify-center flex-wrap mt-4">
+            {popular.map((item, i) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => go(i)}
+                aria-label={`Ver ${item.name}`}
+                aria-current={i === index}
+                className="group inline-flex items-center justify-center w-5 h-7"
+              >
+                <span
+                  className={`block rounded-full transition-all ${
+                    i === index ? 'w-3 h-3 bg-naranja' : 'w-2 h-2 bg-tinta/30 group-hover:bg-tinta/60'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
