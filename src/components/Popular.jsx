@@ -32,42 +32,51 @@ export default function Popular() {
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Los más pedidos" title="Lo que nunca falta" script="en la mesa" />
 
-        <div className="relative max-w-3xl mx-auto w-full">
+        <div className="relative max-w-5xl mx-auto w-full">
           <div className="relative">
             <div
-              className="relative aspect-4/3 md:aspect-16/10 lg:aspect-16/8 rounded-3xl border-2 border-tinta bg-papel shadow-hard overflow-hidden"
+              className="grid md:grid-cols-[1.4fr_1fr] rounded-3xl border-2 border-tinta bg-papel shadow-hard overflow-hidden"
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
               role="group"
               aria-roledescription="carrusel"
               aria-label="Los más pedidos"
             >
-              <PlaceholderImage
-                fill
-                priority={index === 0}
-                alt={slide.alt}
-                photo={slide.photo}
-                sizes="(min-width: 768px) 768px, 100vw"
-                className={`absolute inset-0 w-full h-full ${slide.imageClass ?? ''}`}
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-tinta/95 via-tinta/70 via-40% to-transparent to-75%"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-8 flex flex-col gap-2 text-crema">
-                <p className="font-display text-2xl md:text-3xl font-bold">{slide.name}</p>
-                <p className="text-crema/85 text-sm md:text-base max-w-md">{slide.description}</p>
-                <div className="flex items-center justify-between gap-4 pt-2 flex-wrap">
-                  <span className="rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta">
-                    {slide.price}
-                  </span>
-                  <WhatsAppButton
-                    origin="popular"
-                    detail={`${slide.name} (${slide.price})`}
-                    label="Pedir"
-                    variant="naranja"
-                  />
-                </div>
+              <div className="relative aspect-4/3">
+                <PlaceholderImage
+                  fill
+                  priority={index === 0}
+                  alt={slide.alt}
+                  photo={slide.photo}
+                  sizes="(min-width: 1024px) 600px, (min-width: 768px) 60vw, 100vw"
+                  className={`absolute inset-0 w-full h-full ${slide.imageClass ?? ''}`}
+                />
+              </div>
+              {/* Todos los textos ocupan la misma celda: la altura es la del más largo y no salta al cambiar de plato */}
+              <div className="grid p-5 md:p-6 lg:p-10 border-t-2 md:border-t-0 md:border-l-2 border-tinta">
+                {popular.map((item, i) => (
+                  <div
+                    key={item.id}
+                    aria-hidden={i !== index}
+                    className={`[grid-area:1/1] flex flex-col gap-3 md:justify-center ${i === index ? '' : 'invisible'}`}
+                  >
+                    <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-tinta leading-tight">
+                      {item.name}
+                    </p>
+                    <p className="text-suave text-sm md:text-base">{item.description}</p>
+                    <div className="flex items-center justify-between gap-4 pt-2 flex-wrap mt-auto md:mt-0">
+                      <span className="rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta">
+                        {item.price}
+                      </span>
+                      <WhatsAppButton
+                        origin="popular"
+                        detail={`${item.name} (${item.price})`}
+                        label="Pedir"
+                        variant="naranja"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
