@@ -23,8 +23,14 @@ export const menu = [
   {
     id: 'empanadas',
     title: 'Empanadas',
-    note: 'Jamón y queso · humita · verdura · carne · pollo',
-    items: [{ name: '½ docena / docena', price: '$13.000 / $25.000' }],
+    note: '½ docena / docena',
+    items: [
+      { name: 'Jamón y queso', price: '$13.000 / $25.000' },
+      { name: 'Humita', price: '$13.000 / $25.000' },
+      { name: 'Verdura', price: '$13.000 / $25.000' },
+      { name: 'Carne', price: '$13.000 / $25.000' },
+      { name: 'Pollo', price: '$13.000 / $25.000' },
+    ],
   },
   {
     id: 'tartas',

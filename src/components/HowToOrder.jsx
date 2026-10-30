@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { site } from '../data/site.js';
 import { listWithY } from '../lib/format.js';
+import { useKeepInView } from '../lib/useKeepInView.js';
 import SectionHeading from './SectionHeading.jsx';
 import PlaceholderImage from './PlaceholderImage.jsx';
 import { ChevronDownIcon } from './icons.jsx';
@@ -25,6 +26,7 @@ const STEPS = [
 
 export default function HowToOrder() {
   const [openId, setOpenId] = useState(STEPS[0].id);
+  const keepInView = useKeepInView(openId);
 
   return (
     <section id="pedir" className="bg-crema px-5 md:px-12 py-12 md:py-16">
@@ -39,7 +41,10 @@ export default function HowToOrder() {
                 <div key={step.id} className="rounded-2xl border-2 border-tinta bg-papel overflow-hidden">
                   <button
                     type="button"
-                    onClick={() => setOpenId(isOpen ? null : step.id)}
+                    onClick={(e) => {
+                      keepInView(e.currentTarget.parentElement);
+                      setOpenId(isOpen ? null : step.id);
+                    }}
                     aria-expanded={isOpen}
                     aria-controls={`step-${step.id}`}
                     className="w-full flex items-center gap-4 px-5 py-4 text-left"

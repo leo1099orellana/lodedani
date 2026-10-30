@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { faq } from '../data/faq.js';
+import { useKeepInView } from '../lib/useKeepInView.js';
 import SectionHeading from './SectionHeading.jsx';
 import { ChevronDownIcon } from './icons.jsx';
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
+  const keepInView = useKeepInView(openIndex);
 
   return (
     <section id="preguntas" className="bg-crema px-5 md:px-12 py-12 md:py-16">
@@ -18,7 +20,10 @@ export default function Faq() {
               <div key={item.question} className="rounded-2xl border-2 border-tinta bg-papel overflow-hidden">
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                  onClick={(e) => {
+                    keepInView(e.currentTarget.parentElement);
+                    setOpenIndex(isOpen ? -1 : i);
+                  }}
                   aria-expanded={isOpen}
                   aria-controls={`faq-${i}`}
                   className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left"

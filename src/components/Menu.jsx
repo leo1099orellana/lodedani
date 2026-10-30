@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { menu } from '../data/menu.js';
+import { useKeepInView } from '../lib/useKeepInView.js';
 import SectionHeading from './SectionHeading.jsx';
 import WhatsAppButton from './WhatsAppButton.jsx';
 import { ChevronDownIcon } from './icons.jsx';
 
 export default function Menu() {
   const [openId, setOpenId] = useState(menu[0].id);
+  const keepInView = useKeepInView(openId);
 
   return (
     <section id="carta" className="bg-crema px-5 md:px-12 py-12 md:py-16">
@@ -29,7 +31,10 @@ export default function Menu() {
                 <div key={category.id} className="border-b border-crema/10 md:border-none md:break-inside-avoid py-4 md:py-5">
                   <button
                     type="button"
-                    onClick={() => setOpenId(isOpen ? null : category.id)}
+                    onClick={(e) => {
+                      keepInView(e.currentTarget.parentElement);
+                      setOpenId(isOpen ? null : category.id);
+                    }}
                     aria-expanded={isOpen}
                     aria-controls={`cat-${category.id}`}
                     className="w-full flex items-center justify-between gap-3 text-left md:pointer-events-none md:cursor-default"
