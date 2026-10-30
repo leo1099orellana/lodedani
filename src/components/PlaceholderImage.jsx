@@ -1,11 +1,15 @@
+import { photoSrc, photoSrcSet } from '../lib/photos.js';
+
 /**
- * Si `src` está definido, renderiza una <img> real optimizada (con width/height
- * para evitar saltos de layout). Si no, renderiza un bloque placeholder con la
- * etiqueta [Foto: ...] para que el cliente sepa qué foto falta reemplazar.
+ * Si `photo` (nombre de la foto en originals/) o `src` están definidos, renderiza
+ * una <img> real optimizada (con width/height para evitar saltos de layout). Si no,
+ * renderiza un bloque placeholder con la etiqueta [Foto: ...] para que el cliente
+ * sepa qué foto falta reemplazar.
  */
 export default function PlaceholderImage({
-  src,
-  srcSet,
+  photo,
+  src = photo && photoSrc(photo),
+  srcSet = photo && photoSrcSet(photo),
   sizes,
   alt,
   label,

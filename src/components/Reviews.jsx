@@ -2,6 +2,8 @@ import { reviews } from '../data/reviews.js';
 import SectionHeading from './SectionHeading.jsx';
 
 export default function Reviews() {
+  if (reviews.length === 0) return null;
+
   return (
     <section className="bg-crema-2 px-5 md:px-12 py-20 md:py-28">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">

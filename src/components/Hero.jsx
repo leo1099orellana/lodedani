@@ -6,7 +6,7 @@ import { ClockIcon, PinIcon } from './icons.jsx';
 const CHIPS = [
   { icon: ClockIcon, text: site.schedule.days },
   { icon: ClockIcon, text: site.schedule.hours },
-  { icon: PinIcon, text: '3 barrios con delivery' },
+  { icon: PinIcon, text: 'Envío gratis en 3 barrios' },
 ];
 
 export default function Hero() {
@@ -31,7 +31,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-suave text-base md:text-lg max-w-md">
-            Pizzas, milanesas, empanadas, pollo al horno y todo lo que sale de la cocina de Dani.
+            Pizzas, milanesas, empanadas, tartas y todo lo que sale de la cocina de Dani.
             Lo pedís por WhatsApp y llega calentito a tu casa.
           </p>
 
@@ -64,7 +64,8 @@ export default function Hero() {
             <PlaceholderImage
               priority
               alt="Pizza napolitana de Lo de Dani con tomate y aceitunas"
-              label="[Foto: napolitana]"
+              photo="napolitana"
+              sizes="192px"
               width={300}
               height={300}
               className="w-full aspect-square"
@@ -77,26 +78,29 @@ export default function Hero() {
             <PlaceholderImage
               priority
               alt="Pizza napolitana de Lo de Dani con tomate y aceitunas"
-              label="[Foto: napolitana]"
+              photo="napolitana"
+              sizes="320px"
               width={300}
               height={300}
               className="w-full aspect-square"
             />
+            <p className="font-script text-center text-lg text-tinta mt-1">Con aceitunas</p>
           </div>
           <div className="absolute right-0 top-0 w-[54%] rotate-[5deg] bg-papel border-2 border-tinta shadow-hard p-2 pb-6">
             <PlaceholderImage
               alt="Milanesa napolitana de Lo de Dani"
-              label="[Foto: milanesa]"
+              photo="milanesa-napolitana"
+              sizes="300px"
               width={280}
               height={280}
               className="w-full aspect-square"
             />
-            <p className="font-script text-center text-lg text-tinta mt-1">Con aceitunas</p>
           </div>
           <div className="absolute right-6 bottom-0 w-[50%] -rotate-3 bg-papel border-2 border-tinta shadow-hard p-2 pb-6">
             <PlaceholderImage
               alt="Empanadas caseras de Lo de Dani"
-              label="[Foto: empanadas]"
+              photo="empanadas"
+              sizes="280px"
               width={260}
               height={260}
               className="w-full aspect-square"

@@ -21,8 +21,11 @@ export default function About() {
             align="left"
           />
           <p className="text-suave text-base md:text-lg max-w-prose">
-            [Historia de Dani en 2 o 3 líneas: quién empezó, cómo arrancó y qué los hace
-            distintos.]
+            Lo de Dani nació hace {site.yearsCooking} años, cuando nuestra familia decidió animarse
+            a emprender con lo que más nos gusta: cocinar para otros. Empezamos con pocos platos y
+            muchas ganas, y la carta fue creciendo pedido a pedido, de la mano de los vecinos de
+            Gutiérrez. Hoy seguimos en familia y con la misma idea del primer día: que cada plato
+            llegue a tu mesa como si saliera de casa.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
@@ -41,12 +44,13 @@ export default function About() {
         <div className="relative order-1 md:order-2 mx-auto w-full max-w-sm">
           <div className="rounded-t-full rounded-b-3xl border-[6px] border-verde p-2">
             <PlaceholderImage
-              alt="Dani cocinando en la cocina de Lo de Dani"
-              label="[Foto: Dani en la cocina de Lo de Dani]"
+              alt="Pizza de Lo de Dani con jamón, morrones y aceitunas"
+              photo="pizza-jamon-morron"
+              sizes="(min-width: 768px) 384px, 90vw"
               width={480}
               height={600}
               rounded="rounded-t-full rounded-b-2xl"
-              className="w-full h-full"
+              className="w-full aspect-4/5"
             />
           </div>
           <span className="absolute -right-3 bottom-8 md:-right-5 md:bottom-12 inline-flex items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-full bg-miel border-2 border-tinta rotate-12 text-center font-script text-xl md:text-2xl leading-[1.05] font-bold text-tinta shadow-hard p-3">

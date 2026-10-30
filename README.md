@@ -26,11 +26,11 @@ Todo lo editable vive en `src/data/`, sin tocar JSX:
 ## Cómo poner las fotos reales
 
 1. Guardá las fotos originales (buena resolución) en `public/assets/img/originals/`.
-2. Corré `npm run images`. Genera `.webp` y `.avif` en 480/800/1200px de ancho dentro de `public/assets/img/`.
-3. En el archivo de datos correspondiente (`popular.js`, etc.) o directamente en el componente, cambiá `image: null` por la ruta generada, por ejemplo `"/assets/img/napolitana-800.webp"`, y completá `srcSet`/`sizes` en el componente si querés servir varios tamaños.
-4. Donde no haya `src`, el componente `PlaceholderImage` muestra un bloque con la etiqueta `[Foto: ...]` — así se ve claramente qué falta reemplazar y no hay pedidos de red a imágenes rotas.
+2. Corré `npm run images`. Genera `.webp` y `.avif` en 160/480/800/1200px de ancho dentro de `public/assets/img/`.
+3. En el archivo de datos correspondiente (`popular.js`) o directamente en el componente, poné el nombre de la foto sin extensión en `photo`, por ejemplo `photo="napolitana"`, y definí `sizes` según el ancho en pantalla.
+4. Donde no haya `photo` ni `src`, el componente `PlaceholderImage` muestra un bloque con la etiqueta `[Foto: ...]` — así se ve claramente qué falta reemplazar y no hay pedidos de red a imágenes rotas.
 
-Si cambian los colores de marca, `scripts/generate-brand-assets.mjs` regenera el favicon, el apple-touch-icon, los íconos del manifest y el `og-image.jpg` placeholder a partir de `public/favicon.svg` (`node scripts/generate-brand-assets.mjs`).
+Si cambian los colores de marca, `scripts/generate-brand-assets.mjs` regenera el favicon, el apple-touch-icon, los íconos del manifest y el `og-image.jpg` (`node scripts/generate-brand-assets.mjs`).
 
 ## Placeholders pendientes antes de publicar
 
@@ -42,11 +42,8 @@ Buscá `[corchetes]` en el código y reemplazá:
 - **Mapa de Google**: en `src/components/Contact.jsx` hay un bloque placeholder `[Mapa de Google con la ubicación]`; reemplazarlo por un `<iframe loading="lazy">` con el embed real una vez haya dirección confirmada (Google Maps → Compartir → Insertar un mapa).
 - **Instagram** (`[@usuario]`): `src/data/site.js` (`instagram`, `instagramUrl`) y el `sameAs` del JSON-LD en `index.html`.
 - **Años de cocina** (`[X]`): `src/data/site.js` (`yearsCooking`).
-- **Historia de Dani**: texto placeholder en `src/components/About.jsx`.
-- **Foto de Dani / fotos de platos**: ver sección anterior.
-- **Reseñas reales**: `src/data/reviews.js`.
-- **Precio del pollo entero**: `src/data/menu.js` (categoría `pollo`).
-- **Medios de pago, costo y demora del envío, retiro en el local, pedidos para eventos**: `src/data/faq.js` y `src/components/HowToOrder.jsx` (pasos 02 y 04).
+- **Foto de Dani**: en `src/components/About.jsx` hoy hay una foto de pizza; reemplazarla si aparece una de Dani.
+- **Reseñas reales** (opcional): cargarlas en `src/data/reviews.js`; mientras esté vacío, la sección no se muestra.
 - **IDs de GA4 / Meta Pixel**: `src/data/site.js` (`tracking.ga4Id`, `tracking.metaPixelId`). Mientras estén en `null` no se carga ningún script de terceros.
 
 ## SEO técnico ya resuelto
@@ -69,7 +66,7 @@ Buscá `[corchetes]` en el código y reemplazá:
 
 - [ ] Completar Google Business Profile con las mismas fotos, horario y datos que la web.
 - [ ] Poner el link de la web en la bio de Instagram, Facebook y WhatsApp Business, con parámetros UTM (`utm_source`, `utm_medium`, `utm_campaign` — ya se leen y se mandan con cada evento de tracking).
-- [ ] Pedir reseñas reales a clientes en Google y reemplazar los placeholders de `src/data/reviews.js`.
+- [ ] Pedir reseñas reales a clientes en Google y cargarlas en `src/data/reviews.js`.
 - [ ] Conseguir 3 a 5 enlaces locales relevantes (grupos de barrio, medios locales, directorios). Calidad antes que cantidad, nunca comprar links.
 
 ## Deploy

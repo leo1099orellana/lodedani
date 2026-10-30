@@ -28,13 +28,13 @@ export const site = {
   seo: {
     title: 'Lo de Dani | Casa de comidas y delivery en J. M. Gutiérrez',
     description:
-      'Pizzas, milanesas, empanadas y pollo al horno con delivery en J. M. Gutiérrez, El Carmen y El Mirador. Pedí por WhatsApp. Martes a domingo.',
+      'Pizzas, milanesas, empanadas y tartas con delivery en J. M. Gutiérrez, El Carmen y El Mirador. Pedí por WhatsApp. Martes a domingo.',
     keywords: [
       'delivery de comida casera en Juan María Gutiérrez',
       'pizza napolitana a domicilio en El Carmen',
       'milanesas a domicilio en El Mirador',
       'empanadas caseras delivery en J. M. Gutiérrez',
-      'pollo al horno con guarnición delivery',
+      'tartas caseras con delivery en J. M. Gutiérrez',
     ],
     ogImage: '/og-image.jpg',
   },

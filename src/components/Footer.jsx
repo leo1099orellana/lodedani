@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <p className="font-display italic text-2xl font-bold mb-3">{site.brand}</p>
           <p className="text-crema/75 text-sm max-w-xs">
-            Casa de comidas con delivery de pizzas, milanesas, empanadas y pollo al horno en{' '}
+            Casa de comidas con delivery de pizzas, milanesas, empanadas y tartas en{' '}
             {listWithY(site.deliveryAreas)}.
           </p>
         </div>

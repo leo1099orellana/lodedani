@@ -1,22 +1,4 @@
-// Reseñas de clientes. Reemplazar por reseñas reales copiadas de Google/Instagram.
+// Reseñas de clientes, copiadas de Google/Instagram. Mientras esté vacío, la sección no se muestra.
+// Formato: { id: 1, quote: '...', name: '...', neighborhood: '...' }
 
-export const reviews = [
-  {
-    id: 1,
-    quote: '[Reseña real de un cliente: copiarla de Google o Instagram]',
-    name: '[Nombre]',
-    neighborhood: '[Barrio]',
-  },
-  {
-    id: 2,
-    quote: '[Reseña real de un cliente: copiarla de Google o Instagram]',
-    name: '[Nombre]',
-    neighborhood: '[Barrio]',
-  },
-  {
-    id: 3,
-    quote: '[Reseña real de un cliente: copiarla de Google o Instagram]',
-    name: '[Nombre]',
-    neighborhood: '[Barrio]',
-  },
-];
+export const reviews = [];

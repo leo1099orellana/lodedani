@@ -1,5 +1,5 @@
 // Genera favicons, apple-touch-icon e íconos del manifest a partir de public/favicon.svg,
-// y un og-image.jpg placeholder (1200x630) hasta tener una foto real para reemplazarlo.
+// y el og-image.jpg (1200x630) a partir de la foto de la napolitana.
 // Uso: node scripts/generate-brand-assets.mjs
 import sharp from 'sharp';
 import { readFileSync } from 'node:fs';
@@ -27,13 +27,21 @@ for (const { file, size } of icons) {
 
 const ogSvg = Buffer.from(`
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#1F4D34" />
-  <rect x="40" y="40" width="1120" height="550" rx="28" fill="none" stroke="#F1C165" stroke-width="3" />
-  <text x="600" y="330" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="120" fill="#F4EBD7">Lo de Dani</text>
-  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#F1C165" letter-spacing="2">CASA DE COMIDAS · DELIVERY</text>
-  <text x="600" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#F4EBD7">Pizzas · Milanesas · Empanadas · Pollo al horno</text>
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.35" stop-color="#1F4D34" stop-opacity="0" />
+      <stop offset="0.8" stop-color="#1F4D34" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#shade)" />
+  <text x="600" y="490" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="96" fill="#F4EBD7">Lo de Dani</text>
+  <text x="600" y="548" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#F1C165" letter-spacing="2">CASA DE COMIDAS · DELIVERY</text>
 </svg>
 `);
 
-await sharp(ogSvg).jpeg({ quality: 82 }).toFile(path.join(publicDir, 'og-image.jpg'));
-console.log('✓ og-image.jpg (placeholder — reemplazar por una foto real antes de publicar)');
+await sharp(path.join(publicDir, 'assets', 'img', 'originals', 'napolitana.jpg'))
+  .resize(1200, 630, { fit: 'cover' })
+  .composite([{ input: ogSvg }])
+  .jpeg({ quality: 82 })
+  .toFile(path.join(publicDir, 'og-image.jpg'));
+console.log('✓ og-image.jpg');

@@ -1,4 +1,4 @@
-const ITEMS = ['PIZZAS', 'EMPANADAS', 'MILANESAS', 'HAMBURGUESAS', 'POLLO AL HORNO', 'PAPAS'];
+const ITEMS = ['PIZZAS', 'EMPANADAS', 'MILANESAS', 'HAMBURGUESAS', 'TARTAS', 'PAPAS'];
 
 export default function Strip() {
   return (

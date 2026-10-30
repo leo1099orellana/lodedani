@@ -1,3 +1,6 @@
+import { site } from './site.js';
+import { listWithY } from '../lib/format.js';
+
 export const faq = [
   {
     question: '¿A qué barrios hacen delivery?',
@@ -6,7 +9,7 @@ export const faq = [
   },
   {
     question: '¿Cuáles son los horarios de atención?',
-    answer: 'Atendemos de martes a domingo, de 11 a 15 h y de 19 a 23 h.',
+    answer: `Atendemos de ${site.schedule.days.toLowerCase()}, de ${site.schedule.hours}.`,
   },
   {
     question: '¿Cómo hago mi pedido?',
@@ -15,10 +18,14 @@ export const faq = [
   },
   {
     question: '¿Qué medios de pago aceptan?',
-    answer: '[Confirmar medios de pago: efectivo, transferencia, tarjeta, etc.]',
+    answer: 'Aceptamos efectivo y transferencia.',
   },
   {
-    question: '¿Cuánto cuesta y cuánto tarda el envío?',
-    answer: '[Confirmar costo del envío y tiempo de demora estimado]',
+    question: '¿Cuánto cuesta el envío?',
+    answer: `El envío es gratis en ${listWithY(site.deliveryAreas)}.`,
+  },
+  {
+    question: '¿Puedo retirar mi pedido en el local?',
+    answer: `Sí. Hacé tu pedido por WhatsApp y pasá a buscarlo por ${site.address.street}, ${site.address.locality}.`,
   },
 ];

@@ -46,11 +46,12 @@ export default function Popular() {
                 fill
                 priority={index === 0}
                 alt={slide.alt}
-                src={slide.image}
-                className="absolute inset-0 w-full h-full"
+                photo={slide.photo}
+                sizes="(min-width: 768px) 768px, 100vw"
+                className={`absolute inset-0 w-full h-full ${slide.imageClass ?? ''}`}
               />
               <div
-                className="absolute inset-0 bg-gradient-to-t from-tinta/90 via-tinta/25 to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-tinta/95 via-tinta/70 via-40% to-transparent to-75%"
                 aria-hidden="true"
               />
               <div className="absolute inset-x-0 bottom-0 p-5 md:p-8 flex flex-col gap-2 text-crema">
@@ -106,7 +107,7 @@ export default function Popular() {
                 i === index ? 'border-naranja' : 'border-tinta/30'
               }`}
             >
-              <PlaceholderImage fill alt="" src={item.image} className="w-full h-full" />
+              <PlaceholderImage fill alt="" photo={item.photo} sizes="64px" className="w-full h-full" />
             </button>
           ))}
         </div>

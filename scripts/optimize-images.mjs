@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const originalsDir = path.join(__dirname, '..', 'public', 'assets', 'img', 'originals');
 const outDir = path.join(__dirname, '..', 'public', 'assets', 'img');
 
-const WIDTHS = [480, 800, 1200];
+const WIDTHS = [160, 480, 800, 1200];
 const EXTENSIONS = new Set(['.jpg', '.jpeg', '.png']);
 
 if (!existsSync(originalsDir)) {

@@ -9,22 +9,17 @@ const STEPS = [
   {
     id: '01',
     title: 'Delivery a domicilio',
-    text: `Repartimos en ${listWithY(site.deliveryAreas)}. Escribinos por WhatsApp con tu pedido y tu dirección.`,
+    text: `Repartimos en ${listWithY(site.deliveryAreas)}. El envío es gratis: escribinos por WhatsApp con tu pedido y tu dirección.`,
   },
   {
     id: '02',
     title: 'Retiro en el local',
-    text: '[Confirmar si hay retiro en el local y la dirección para hacerlo]',
+    text: `Hacé tu pedido por WhatsApp y pasá a buscarlo por ${site.address.street}, ${site.address.locality}.`,
   },
   {
     id: '03',
     title: 'Combos y promos',
     text: 'Pedí alguno de nuestros combos armados y ahorrá en cada pedido.',
-  },
-  {
-    id: '04',
-    title: 'Pedidos para reuniones',
-    text: '[Confirmar si toman pedidos grandes para reuniones o eventos y con cuánta anticipación]',
   },
 ];
 
@@ -34,7 +29,7 @@ export default function HowToOrder() {
   return (
     <section id="pedir" className="bg-crema px-5 md:px-12 py-20 md:py-28">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-        <SectionHeading eyebrow="Cómo pedir" title="Pedí en" script="cuatro pasos." />
+        <SectionHeading eyebrow="Cómo pedir" title="Pedí en" script="tres pasos." />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col gap-3">
@@ -72,11 +67,12 @@ export default function HowToOrder() {
 
           <div className="mx-auto w-full max-w-xs rotate-2 bg-papel border-2 border-tinta shadow-hard p-3 pb-6">
             <PlaceholderImage
-              alt="Pedido de Lo de Dani listo para el delivery"
-              label="[Foto: pedido empaquetado listo para el delivery]"
+              alt="Tarta de Lo de Dani en su caja, lista para el delivery"
+              photo="tarta-caja"
+              sizes="320px"
               width={400}
               height={400}
-              className="w-full"
+              className="w-full aspect-square"
             />
             <p className="font-script text-xl text-center text-tinta mt-3">
               Recién salido del horno
