@@ -36,7 +36,7 @@ Si cambian los colores de marca, `scripts/generate-brand-assets.mjs` regenera el
 
 Buscá `[corchetes]` en el código y reemplazá:
 
-- **Dominio real**: hoy está puesto `https://lodedani.com.ar` en `index.html` (canonical, Open Graph, JSON-LD), `public/robots.txt` y `public/sitemap.xml`, y `src/data/site.js`. Hay que reemplazarlo en los cuatro lugares por el dominio definitivo.
+- **Dominio real**: hoy está puesto `https://lodedani.vercel.app` en `index.html` (canonical, Open Graph, JSON-LD), `public/robots.txt` y `public/sitemap.xml`, y `src/data/site.js`. Hay que reemplazarlo en los cuatro lugares por el dominio definitivo.
 - **Localidad y partido** (`[partido/ciudad]`): en `src/data/site.js`, `index.html` (JSON-LD `address`) y el texto de About.
 - **Dirección del local**: `src/data/site.js` (`address.street`) y la tarjeta de mapa en Contacto.
 - **Mapa de Google**: en `src/components/Contact.jsx` hay un bloque placeholder `[Mapa de Google con la ubicación]`; reemplazarlo por un `<iframe loading="lazy">` con el embed real una vez haya dirección confirmada (Google Maps → Compartir → Insertar un mapa).

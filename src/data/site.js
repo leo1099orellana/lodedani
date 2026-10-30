@@ -4,7 +4,7 @@
 export const site = {
   brand: 'Lo de Dani',
   tagline: 'Casa de comidas · Delivery',
-  domain: 'https://lodedani.com.ar', // [Dominio] placeholder — comprar la semana que viene y actualizar
+  domain: 'https://lodedani.vercel.app', // Cambiar por el dominio propio cuando se compre
   locality: 'Gutiérrez, Berazategui',
   address: {
     street: 'Camino Real Norte 1824',

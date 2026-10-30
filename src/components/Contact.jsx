@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="bg-crema px-5 md:px-12 py-20 md:py-28">
+    <section id="contacto" className="bg-crema px-5 md:px-12 py-12 md:py-16">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Contacto" title="¿Qué se te" script="antoja hoy?" />
 
@@ -79,7 +79,7 @@ export default function Contact() {
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-tinta bg-naranja text-crema hover:brightness-110 transition-colors px-6 py-3 min-h-11 font-sans font-semibold tracking-wide"
             >
               <WhatsAppIcon className="w-5 h-5" />
-              Enviar pedido por WhatsApp
+              Enviar por WhatsApp
             </button>
             <p className="text-xs text-suave">Llegamos a {listWithY(site.deliveryAreas)}.</p>
           </form>

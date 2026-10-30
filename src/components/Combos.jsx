@@ -5,7 +5,7 @@ import WhatsAppButton from './WhatsAppButton.jsx';
 
 export default function Combos() {
   return (
-    <section id="promos" className="bg-crema px-5 md:px-12 pt-10 md:pt-12 pb-20 md:pb-28">
+    <section id="promos" className="bg-crema px-5 md:px-12 pt-10 md:pt-12 pb-12 md:pb-16">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Promos" title="Combos que" script="rinden." />
 
@@ -16,9 +16,9 @@ export default function Combos() {
               className="snap-start snap-always shrink-0 w-[78%] sm:w-[60%] md:w-auto rounded-2xl border-2 border-tinta bg-papel shadow-hard p-6 flex flex-col gap-3"
             >
               <div className="flex -mx-6 -mt-6 mb-2 h-36 rounded-t-[0.9rem] overflow-hidden border-b-2 border-tinta">
-                {combo.photos.map(({ photo, imageClass = '' }) => (
+                {combo.photos.map(({ photo, imageClass = '' }, i) => (
                   <PlaceholderImage
-                    key={photo}
+                    key={i}
                     fill
                     alt=""
                     photo={photo}

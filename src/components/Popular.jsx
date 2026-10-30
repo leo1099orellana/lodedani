@@ -28,7 +28,7 @@ export default function Popular() {
   const slide = popular[index];
 
   return (
-    <section id="populares" className="bg-crema px-5 md:px-12 pt-20 md:pt-28 pb-6 md:pb-8">
+    <section id="populares" className="bg-crema px-5 md:px-12 pt-12 md:pt-16 pb-6 md:pb-8">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Los más pedidos" title="Lo que nunca falta" script="en la mesa" />
 

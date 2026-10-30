@@ -8,7 +8,7 @@ export default function Reviews() {
   if (reviews.length === 0) return null;
 
   return (
-    <section className="bg-crema px-5 md:px-12 py-20 md:py-28">
+    <section className="bg-crema px-5 md:px-12 py-12 md:py-16">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Opiniones" title="Lo que dicen" script="los vecinos." />
 

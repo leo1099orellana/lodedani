@@ -1,5 +1,5 @@
 // photos: una o dos fotos que se muestran lado a lado en la tarjeta del combo.
-// imageClass ajusta el recorte (por ej. para mostrar solo la mitad de jamón de una pizza).
+// imageClass ajusta el recorte de la foto. empanadas-3 y empanadas-6 muestran la cantidad exacta del combo.
 
 export const combos = [
   {
@@ -7,7 +7,7 @@ export const combos = [
     name: 'Muzza + 6 empanadas',
     detail: 'Ahorrás $3.000',
     price: '$23.000',
-    photos: [{ photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }, { photo: 'empanadas' }],
+    photos: [{ photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }, { photo: 'empanadas-6' }],
   },
   {
     id: 'napolitana-muzza',
@@ -21,13 +21,16 @@ export const combos = [
     name: '2 cheeseburgers dobles',
     detail: 'Con fritas',
     price: '$20.000',
-    photos: [{ photo: 'hamburguesa', imageClass: 'object-[50%_25%]' }],
+    photos: [
+      { photo: 'hamburguesa', imageClass: 'object-[50%_25%]' },
+      { photo: 'hamburguesa', imageClass: 'object-[50%_25%]' },
+    ],
   },
   {
     id: 'empanadas-jamon',
-    name: '3 empanadas + pizza de jamón',
+    name: '3 empanadas + pizza especial',
     detail: 'Para dos',
     price: '$21.000',
-    photos: [{ photo: 'empanadas' }, { photo: 'pizza-calabresa-jamon', imageClass: 'object-right' }],
+    photos: [{ photo: 'empanadas-3' }, { photo: 'pizza-jamon-morron' }],
   },
 ];

@@ -8,7 +8,7 @@ export default function Menu() {
   const [openId, setOpenId] = useState(menu[0].id);
 
   return (
-    <section id="carta" className="bg-crema px-5 md:px-12 py-20 md:py-28">
+    <section id="carta" className="bg-crema px-5 md:px-12 py-12 md:py-16">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading
           eyebrow="La carta"
@@ -22,11 +22,11 @@ export default function Menu() {
         </p>
 
         <div className="rounded-3xl border-[10px] border-madera bg-pizarra shadow-hard p-5 sm:p-7 md:p-10">
-          <div className="md:grid md:grid-cols-2 md:gap-x-12">
+          <div className="md:columns-2 md:gap-x-12">
             {menu.map((category) => {
               const isOpen = openId === category.id;
               return (
-                <div key={category.id} className="border-b border-crema/10 md:border-none py-4 md:py-5">
+                <div key={category.id} className="border-b border-crema/10 md:border-none md:break-inside-avoid py-4 md:py-5">
                   <button
                     type="button"
                     onClick={() => setOpenId(isOpen ? null : category.id)}

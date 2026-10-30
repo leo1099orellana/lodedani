@@ -27,7 +27,7 @@ export default function HowToOrder() {
   const [openId, setOpenId] = useState(STEPS[0].id);
 
   return (
-    <section id="pedir" className="bg-crema px-5 md:px-12 py-20 md:py-28">
+    <section id="pedir" className="bg-crema px-5 md:px-12 py-12 md:py-16">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
         <SectionHeading eyebrow="Cómo pedir" title="Pedí en" script="tres pasos." />
 

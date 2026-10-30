@@ -11,13 +11,13 @@ const CHIPS = [
 
 export default function About() {
   return (
-    <section id="nosotros" className="bg-crema px-5 md:px-12 py-20 md:py-28 overflow-x-clip">
+    <section id="nosotros" className="bg-crema px-5 md:px-12 py-12 md:py-16 overflow-x-clip">
       <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="flex flex-col gap-6 order-2 md:order-1">
           <SectionHeading
             eyebrow="Nuestra cocina"
             title="Cocina de barrio,"
-            script="hecha todos los días."
+            script="hecha con ganas."
             align="left"
           />
           <p className="text-suave text-base md:text-lg max-w-prose">
