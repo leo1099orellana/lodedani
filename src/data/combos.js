@@ -22,15 +22,32 @@ export const combos = [
     detail: 'Con fritas',
     price: '$20.000',
     photos: [
-      { photo: 'hamburguesa', imageClass: 'object-[50%_25%]' },
-      { photo: 'hamburguesa', imageClass: 'object-[50%_25%]' },
+      { photo: 'cheeseburger', imageClass: 'object-[15%_50%]' },
+      { photo: 'cheeseburger', imageClass: 'object-[15%_50%]' },
     ],
   },
   {
     id: 'empanadas-jamon',
-    name: '3 empanadas + pizza especial',
+    name: '3 empanadas + pizza de jamón',
     detail: 'Para dos',
     price: '$21.000',
-    photos: [{ photo: 'empanadas-3' }, { photo: 'pizza-jamon-morron' }],
+    photos: [{ photo: 'empanadas-3' }, { photo: 'pizza-jamon', imageClass: 'object-right' }],
+  },
+  {
+    id: 'combinada-muzza',
+    name: 'Combinada + muzza',
+    detail: '2 pizzas',
+    price: '$27.000',
+    photos: [{ photo: 'pizza-combinada' }, { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }],
+  },
+  {
+    id: 'dos-muzzas',
+    name: '2 muzzas',
+    detail: 'Ahorrás $4.000',
+    price: '$22.000',
+    photos: [
+      { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' },
+      { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' },
+    ],
   },
 ];

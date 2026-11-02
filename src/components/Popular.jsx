@@ -7,6 +7,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from './icons.jsx';
 
 const total = popular.length;
 
+function orderDetail({ name, price, prices }) {
+  if (prices) return `${name} (${prices.map((p) => `${p.label} ${p.price}`).join(' / ')})`;
+  return `${name} (${price})`;
+}
+
 export default function Popular() {
   const [index, setIndex] = useState(0);
   const touchStartX = useRef(null);
@@ -42,7 +47,8 @@ export default function Popular() {
               aria-roledescription="carrusel"
               aria-label="Los más pedidos"
             >
-              <div className="relative aspect-4/3">
+              {/* min-w-0 y h-full: si el texto es más alto que la foto, ella se recorta en vez de ensancharse y apretar los precios */}
+              <div className="relative aspect-4/3 min-w-0 w-full md:h-full">
                 <PlaceholderImage
                   fill
                   priority={index === 0}
@@ -65,14 +71,29 @@ export default function Popular() {
                     </p>
                     <p className="text-suave text-sm md:text-base">{item.description}</p>
                     <div className="flex items-center justify-between gap-4 pt-2 flex-wrap mt-auto md:mt-0">
-                      <span className="rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta">
-                        {item.price}
-                      </span>
+                      {item.prices ? (
+                        <ul className="w-full flex flex-col gap-1.5">
+                          {item.prices.map(({ label, price }) => (
+                            <li
+                              key={label}
+                              className="flex items-baseline justify-between gap-3 border-b border-tinta/20 pb-1.5"
+                            >
+                              <span className="text-suave text-sm md:text-base">{label}</span>
+                              <span className="font-display font-bold text-tinta whitespace-nowrap">{price}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <span className="rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta">
+                          {item.price}
+                        </span>
+                      )}
                       <WhatsAppButton
                         origin="popular"
-                        detail={`${item.name} (${item.price})`}
+                        detail={orderDetail(item)}
                         label="Pedir"
                         variant="naranja"
+                        className={item.prices ? 'w-full' : ''}
                       />
                     </div>
                   </div>

@@ -1,6 +1,7 @@
 // Slides del carrusel "Los más pedidos".
 // photo: nombre de la foto en public/assets/img/originals/ (sin extensión), ya
 // procesada con `npm run images`.
+// price: un solo precio. prices: uno por tamaño, para no dejar dudas sobre a cuál corresponde.
 
 export const popular = [
   {
@@ -56,39 +57,51 @@ export const popular = [
     id: 'pizza-especial-huevo',
     name: 'Mitad especial, mitad huevo',
     description: 'Dos gustos en la misma pizza.',
-    price: 'Desde $15.000',
+    price: '$16.000',
     photo: 'pizza-especial-huevo',
     alt: 'Pizza de Lo de Dani mitad jamón con morrones y mitad huevo, con aceitunas',
   },
   {
     id: 'milanesa-napolitana',
     name: 'Milanesa napolitana',
-    description: 'Común o grande, con salsa, muzzarella y jamón.',
-    price: 'Desde $20.000',
+    description: 'Con salsa, muzzarella y jamón.',
+    prices: [
+      { label: 'Común', price: '$20.000' },
+      { label: 'Grande', price: '$30.000' },
+    ],
     photo: 'milanesa-napolitana',
     alt: 'Milanesa napolitana de Lo de Dani con muzzarella, jamón y papas fritas',
   },
   {
     id: 'milanesa-ensalada',
     name: 'Milanesa con ensalada',
-    description: 'Con limón y ensalada de lechuga, tomate y cebolla.',
-    price: 'Desde $17.000',
+    description: 'Con limón. Ensalada de lechuga, tomate y cebolla incluida.',
+    prices: [
+      { label: 'Común', price: '$17.000' },
+      { label: 'Grande', price: '$24.000' },
+    ],
     photo: 'milanesa-ensalada',
     alt: 'Milanesa de Lo de Dani con limón y ensalada de lechuga, tomate y cebolla',
   },
   {
     id: 'empanadas',
     name: 'Empanadas',
-    description: 'Jamón y queso, humita, verdura, carne o pollo. Por ½ docena o docena.',
-    price: 'Desde $13.000',
+    description: 'Jamón y queso, humita, verdura, carne o pollo.',
+    prices: [
+      { label: '½ docena', price: '$13.000' },
+      { label: 'Docena', price: '$25.000' },
+    ],
     photo: 'empanadas',
     alt: 'Bandeja de empanadas caseras de Lo de Dani doradas al horno',
   },
   {
     id: 'tarta',
     name: 'Tarta',
-    description: 'Jamón, queso y huevo o verdura, queso y huevo. Media o entera.',
-    price: 'Desde $13.000',
+    description: 'Jamón, queso y huevo o verdura, queso y huevo.',
+    prices: [
+      { label: 'Media', price: '$13.000' },
+      { label: 'Entera', price: '$25.000' },
+    ],
     photo: 'tarta',
     alt: 'Tarta casera de Lo de Dani con la masa dorada al horno',
   },
@@ -103,8 +116,11 @@ export const popular = [
   {
     id: 'hamburguesa',
     name: 'Hamburguesa',
-    description: 'Lechuga y tomate. Sumale otra carne por $3.000.',
-    price: 'Desde $8.000',
+    description: 'Con lechuga y tomate.',
+    prices: [
+      { label: 'Simple', price: '$8.000' },
+      { label: 'Doble', price: '$11.000' },
+    ],
     photo: 'hamburguesa',
     imageClass: 'object-[50%_25%]',
     alt: 'Hamburguesa doble de Lo de Dani con lechuga y tomate',
@@ -113,7 +129,10 @@ export const popular = [
     id: 'sandwich-milanesa-lechuga-tomate',
     name: 'Sándwich de milanesa',
     description: 'Con lechuga y tomate, servido con papas.',
-    price: '$17.000',
+    prices: [
+      { label: 'Chico', price: '$9.000' },
+      { label: 'Grande', price: '$17.000' },
+    ],
     photo: 'sandwich-milanesa',
     alt: 'Sándwich de milanesa con lechuga, tomate y papas de Lo de Dani',
   },
@@ -121,7 +140,10 @@ export const popular = [
     id: 'sandwich-completo',
     name: 'Sándwich completo',
     description: 'Milanesa, lechuga, tomate, jamón, queso y huevo, con papas.',
-    price: 'Desde $11.000',
+    prices: [
+      { label: 'Chico', price: '$11.000' },
+      { label: 'Grande', price: '$20.000' },
+    ],
     photo: 'sandwich-completo',
     alt: 'Sándwich de milanesa completo de Lo de Dani con huevo, jamón, lechuga, tomate y papas',
   },
@@ -129,7 +151,11 @@ export const popular = [
     id: 'papas-completas',
     name: 'Papas completas',
     description: 'Con cheddar, panceta y verdeo.',
-    price: 'Desde $9.000',
+    prices: [
+      { label: 'Chica', price: '$9.000' },
+      { label: 'Mediana', price: '$11.000' },
+      { label: 'Grande', price: '$12.000' },
+    ],
     photo: 'papas-completas',
     alt: 'Papas fritas de Lo de Dani con cheddar, panceta y verdeo',
   },

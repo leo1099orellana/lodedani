@@ -9,7 +9,7 @@ export default function Combos() {
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Promos" title="Combos que" script="rinden." />
 
-        <div className="flex md:grid md:grid-cols-4 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-5 px-5 md:mx-0 md:px-0">
           {combos.map((combo) => (
             <article
               key={combo.id}
@@ -22,7 +22,7 @@ export default function Combos() {
                     fill
                     alt=""
                     photo={photo}
-                    sizes={combo.photos.length > 1 ? '160px' : '320px'}
+                    sizes={combo.photos.length > 1 ? '200px' : '400px'}
                     className={`min-w-0 flex-1 h-full ${imageClass}`}
                   />
                 ))}
@@ -42,7 +42,7 @@ export default function Combos() {
                 detail={`Combo ${combo.name} (${combo.price})`}
                 label="Pedir este combo"
                 variant="naranja"
-                className="mt-2 w-full"
+                className="mt-2 w-full px-3! whitespace-nowrap"
               />
             </article>
           ))}
