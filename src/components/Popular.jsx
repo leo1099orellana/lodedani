@@ -1,11 +1,27 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { popular } from '../data/popular.js';
+import { photoSrc, photoSrcSet } from '../lib/photos.js';
 import SectionHeading from './SectionHeading.jsx';
 import WhatsAppButton from './WhatsAppButton.jsx';
 import PlaceholderImage from './PlaceholderImage.jsx';
 import { ChevronLeftIcon, ChevronRightIcon } from './icons.jsx';
 
 const total = popular.length;
+const SIZES = '(min-width: 1024px) 600px, (min-width: 768px) 60vw, 100vw';
+const wrap = (i) => ((i % total) + total) % total;
+
+// Descarga la foto una sola vez. Si falla, resuelve igual para que el carrusel no se trabe.
+const preloads = new Map();
+function preload(photo) {
+  if (!preloads.has(photo)) {
+    const img = new Image();
+    img.sizes = SIZES;
+    img.srcset = photoSrcSet(photo);
+    img.src = photoSrc(photo);
+    preloads.set(photo, img.decode().catch(() => {}));
+  }
+  return preloads.get(photo);
+}
 
 function orderDetail({ name, price, prices }) {
   if (prices) return `${name} (${prices.map((p) => `${p.label} ${p.price}`).join(' / ')})`;
@@ -14,11 +30,41 @@ function orderDetail({ name, price, prices }) {
 
 export default function Popular() {
   const [index, setIndex] = useState(0);
+  // target es el plato pedido; index, el que se muestra. Texto y foto cambian juntos cuando la foto ya cargó.
+  const [target, setTarget] = useState(0);
+  const latestTarget = useRef(0);
+  const sectionRef = useRef(null);
+  const [isNear, setIsNear] = useState(false);
   const touchStartX = useRef(null);
 
-  const go = (i) => setIndex(((i % total) + total) % total);
-  const prev = () => go(index - 1);
-  const next = () => go(index + 1);
+  const go = (i) => {
+    const nextTarget = wrap(i);
+    latestTarget.current = nextTarget;
+    setTarget(nextTarget);
+    preload(popular[nextTarget].photo).then(() => {
+      if (latestTarget.current === nextTarget) setIndex(nextTarget);
+    });
+  };
+  const prev = () => go(target - 1);
+  const next = () => go(target + 1);
+
+  // Recién cuando el carrusel está cerca de la pantalla, para no sumar descargas a la carga inicial
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsNear(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '300px' });
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isNear) return;
+    preload(popular[wrap(index + 1)].photo);
+    preload(popular[wrap(index - 1)].photo);
+  }, [isNear, index]);
 
   const onTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -33,7 +79,7 @@ export default function Popular() {
   const slide = popular[index];
 
   return (
-    <section id="populares" className="bg-crema px-5 md:px-12 pt-12 md:pt-16 pb-6 md:pb-8">
+    <section ref={sectionRef} id="populares" className="bg-crema px-5 md:px-12 pt-12 md:pt-16 pb-6 md:pb-8">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
         <SectionHeading eyebrow="Los más pedidos" title="Lo que nunca falta" script="en la mesa" />
 
@@ -51,11 +97,11 @@ export default function Popular() {
               <div className="relative aspect-4/3 min-w-0 w-full md:h-full">
                 <PlaceholderImage
                   fill
-                  priority={index === 0}
+                  priority
                   alt={slide.alt}
                   photo={slide.photo}
-                  sizes="(min-width: 1024px) 600px, (min-width: 768px) 60vw, 100vw"
-                  className={`absolute inset-0 w-full h-full ${slide.imageClass ?? ''}`}
+                  sizes={SIZES}
+                  className={`absolute inset-0 w-full h-full transition-opacity ${target === index ? '' : 'opacity-60'} ${slide.imageClass ?? ''}`}
                 />
               </div>
               {/* Todos los textos ocupan la misma celda: la altura es la del más largo y no salta al cambiar de plato */}
@@ -130,12 +176,12 @@ export default function Popular() {
                 type="button"
                 onClick={() => go(i)}
                 aria-label={`Ver ${item.name}`}
-                aria-current={i === index}
+                aria-current={i === target}
                 className="group inline-flex items-center justify-center w-5 h-7"
               >
                 <span
                   className={`block rounded-full transition-all ${
-                    i === index ? 'w-3 h-3 bg-naranja' : 'w-2 h-2 bg-tinta/30 group-hover:bg-tinta/60'
+                    i === target ? 'w-3 h-3 bg-naranja' : 'w-2 h-2 bg-tinta/30 group-hover:bg-tinta/60'
                   }`}
                 />
               </button>
