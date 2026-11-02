@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { popular } from '../data/popular.js';
 import { photoSrc, photoSrcSet } from '../lib/photos.js';
 import SectionHeading from './SectionHeading.jsx';
@@ -36,13 +37,26 @@ export default function Popular() {
   const sectionRef = useRef(null);
   const [isNear, setIsNear] = useState(false);
   const touchStartX = useRef(null);
+  const panelRef = useRef(null);
+
+  // Cambia de plato y anima el panel desde su altura anterior hasta la que pide el contenido nuevo
+  const show = (i) => {
+    const panel = panelRef.current;
+    const from = panel.offsetHeight;
+    panel.getAnimations().forEach((animation) => animation.cancel());
+    flushSync(() => setIndex(i));
+    const to = panel.offsetHeight;
+    if (from !== to && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      panel.animate({ height: [`${from}px`, `${to}px`] }, { duration: 200, easing: 'ease-out' });
+    }
+  };
 
   const go = (i) => {
     const nextTarget = wrap(i);
     latestTarget.current = nextTarget;
     setTarget(nextTarget);
     preload(popular[nextTarget].photo).then(() => {
-      if (latestTarget.current === nextTarget) setIndex(nextTarget);
+      if (latestTarget.current === nextTarget) show(nextTarget);
     });
   };
   const prev = () => go(target - 1);
@@ -104,25 +118,26 @@ export default function Popular() {
                   className={`absolute inset-0 w-full h-full transition-opacity ${target === index ? '' : 'opacity-60'} ${slide.imageClass ?? ''}`}
                 />
               </div>
-              {/* Todos los textos ocupan la misma celda: la altura es la del más largo y no salta al cambiar de plato */}
-              <div className="grid p-5 md:p-6 lg:p-10 md:border-l-2 border-tinta">
+              {/* En mobile solo se muestra el plato activo y la card mide lo que ocupa su contenido.
+                  En desktop todos comparten la misma celda, así el panel no cambia de alto junto a la foto. */}
+              <div ref={panelRef} className="grid p-5 md:p-6 lg:p-10 md:border-l-2 border-tinta overflow-hidden md:overflow-visible">
                 {popular.map((item, i) => (
                   <div
                     key={item.id}
                     aria-hidden={i !== index}
-                    className={`[grid-area:1/1] flex flex-col gap-3 md:justify-center ${i === index ? '' : 'invisible'}`}
+                    className={`[grid-area:1/1] flex-col gap-3 md:justify-center ${i === index ? 'flex' : 'hidden md:flex md:invisible'}`}
                   >
                     <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-tinta leading-tight">
                       {item.name}
                     </p>
                     <p className="text-suave text-sm md:text-base">{item.description}</p>
-                    <div className="flex items-center justify-between gap-4 pt-2 flex-wrap mt-auto md:mt-0">
+                    <div className="flex items-center justify-between gap-3 md:gap-4 md:pt-2 flex-wrap">
                       {item.prices ? (
                         <ul className="w-full flex flex-col gap-1.5">
                           {item.prices.map(({ label, price }) => (
                             <li
                               key={label}
-                              className="flex items-baseline justify-between gap-3 border-b border-tinta/20 pb-1.5"
+                              className="flex items-baseline justify-between gap-3 border-b border-tinta/20 pb-1.5 last:border-b-0 last:pb-0"
                             >
                               <span className="text-suave text-sm md:text-base">{label}</span>
                               <span className="font-display font-bold text-tinta whitespace-nowrap">{price}</span>
@@ -153,7 +168,7 @@ export default function Popular() {
                 type="button"
                 onClick={prev}
                 aria-label="Plato anterior"
-                className="pointer-events-auto absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+                className="pointer-events-auto absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-tinta bg-crema shadow-[3px_3px_0_0_var(--color-tinta)] md:shadow-hard after:absolute after:-inset-1"
               >
                 <ChevronLeftIcon />
               </button>
@@ -161,7 +176,7 @@ export default function Popular() {
                 type="button"
                 onClick={next}
                 aria-label="Plato siguiente"
-                className="pointer-events-auto absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-tinta bg-crema shadow-hard"
+                className="pointer-events-auto absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-tinta bg-crema shadow-[3px_3px_0_0_var(--color-tinta)] md:shadow-hard after:absolute after:-inset-1"
               >
                 <ChevronRightIcon />
               </button>
