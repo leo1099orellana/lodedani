@@ -33,10 +33,17 @@ export default function Combos() {
               <h3 className="font-display text-xl font-bold text-tinta leading-snug">
                 {combo.name}
               </h3>
-              <p className="text-suave text-sm">{combo.detail}</p>
-              <span className="inline-flex w-fit items-center rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta mt-1">
-                {combo.price}
-              </span>
+              {combo.detail && <p className="text-suave text-sm">{combo.detail}</p>}
+              <div className="mt-auto pt-1 flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center">
+                <span className="inline-flex w-fit items-center rounded-full bg-miel border-2 border-tinta px-4 py-1.5 font-display font-bold text-tinta">
+                  {combo.price}
+                </span>
+                {combo.savings && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-verde/15 border-2 border-verde px-3 py-1 text-verde text-sm font-medium whitespace-nowrap">
+                    Ahorrás <strong className="text-base font-semibold">{combo.savings}</strong>
+                  </span>
+                )}
+              </div>
               <WhatsAppButton
                 origin="combo"
                 detail={`Combo ${combo.name} (${combo.price})`}

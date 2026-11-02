@@ -1,3 +1,4 @@
+// savings: lo que se ahorra, se muestra como etiqueta junto al precio. detail: texto opcional.
 // photos: una o dos fotos que se muestran lado a lado en la tarjeta del combo.
 // imageClass ajusta el recorte de la foto. empanadas-3-bandeja muestra la cantidad exacta del combo.
 
@@ -5,14 +6,14 @@ export const combos = [
   {
     id: 'muzza-empanadas',
     name: 'Muzza + 6 empanadas',
-    detail: 'Ahorrás $3.000',
+    savings: '$3.000',
     price: '$23.000',
     photos: [{ photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }, { photo: 'empanadas', imageClass: 'object-[50%_90%] flex-[2]! md:flex-1!' }],
   },
   {
     id: 'napolitana-muzza',
     name: 'Napolitana + muzza',
-    detail: 'Ahorrás $3.000',
+    savings: '$3.000',
     price: '$26.000',
     photos: [{ photo: 'napolitana' }, { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }],
   },
@@ -43,7 +44,7 @@ export const combos = [
   {
     id: 'dos-muzzas',
     name: '2 muzzas',
-    detail: 'Ahorrás $4.000',
+    savings: '$4.000',
     price: '$22.000',
     photos: [
       { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' },
