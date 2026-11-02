@@ -36,7 +36,7 @@ export const combos = [
   {
     id: 'combinada-muzza',
     name: 'Combinada + muzza',
-    detail: '2 pizzas',
+    detail: 'Combinada: mitad napolitana, mitad especial',
     price: '$27.000',
     photos: [{ photo: 'pizza-combinada' }, { photo: 'pizza-muzzarella', imageClass: 'object-[50%_70%]' }],
   },
