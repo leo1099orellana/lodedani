@@ -13,8 +13,9 @@ const LINKS = [
 ];
 
 export default function Footer() {
+  // pb-24 en mobile: al final de la página el botón flotante no queda sobre el texto
   return (
-    <footer className="bg-verde text-crema px-5 md:px-12 pt-16 pb-8">
+    <footer className="bg-verde text-crema px-5 md:px-12 pt-16 pb-24 md:pb-8">
       <div className="max-w-[1280px] mx-auto grid sm:grid-cols-3 gap-10">
         <div>
           <p className="font-display italic text-2xl font-bold mb-3">{site.brand}</p>
