@@ -105,7 +105,7 @@ export default function Popular() {
                 />
               </div>
               {/* Todos los textos ocupan la misma celda: la altura es la del más largo y no salta al cambiar de plato */}
-              <div className="grid p-5 md:p-6 lg:p-10 border-t-2 md:border-t-0 md:border-l-2 border-tinta">
+              <div className="grid p-5 md:p-6 lg:p-10 md:border-l-2 border-tinta">
                 {popular.map((item, i) => (
                   <div
                     key={item.id}
