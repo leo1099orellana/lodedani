@@ -109,8 +109,27 @@
         "sameAs": ["https://www.instagram.com/lodedani_casadecomidas"]
       }
     </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2162394714407923');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
+    <!-- Meta Pixel sin JavaScript: va en el body porque Vite no acepta <img> dentro de <noscript> en el head -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2162394714407923&ev=PageView&noscript=1"
+    /></noscript>
     <noscript>
       <header>
         <p><strong>Lo de Dani — Casa de comidas con delivery en J. M. Gutiérrez, El Carmen y El Mirador</strong></p>

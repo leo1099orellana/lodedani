@@ -29,16 +29,21 @@ function loadScript(src, attrs = {}) {
   return script;
 }
 
+// Eventos que además se mandan a Meta como el evento estándar Contact,
+// para poder optimizar los anuncios a conversaciones de WhatsApp.
+const META_CONTACT_EVENTS = ['click_whatsapp', 'submit_pedido'];
+
 /**
- * Carga GA4 y Meta Pixel solo si hay IDs configurados en site.js.
+ * Carga GA4 solo si hay un ID configurado en site.js.
  * Se ejecuta después del evento load para no bloquear el render inicial.
+ * El Meta Pixel no se carga acá: va con el código oficial en index.html.
  */
 export function initTracking() {
   if (typeof window === 'undefined' || initialized) return;
   initialized = true;
 
   const start = () => {
-    const { ga4Id, metaPixelId } = site.tracking;
+    const { ga4Id } = site.tracking;
 
     if (ga4Id) {
       window.dataLayer = window.dataLayer || [];
@@ -48,15 +53,6 @@ export function initTracking() {
       window.gtag('js', new Date());
       window.gtag('config', ga4Id, { send_page_view: true });
       loadScript(`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`);
-    }
-
-    if (metaPixelId) {
-      window.fbq = function fbq() {
-        (window.fbq.queue = window.fbq.queue || []).push(arguments);
-      };
-      window.fbq('init', metaPixelId);
-      window.fbq('track', 'PageView');
-      loadScript('https://connect.facebook.net/en_US/fbevents.js');
     }
   };
 
@@ -80,5 +76,6 @@ export function track(event, params = {}) {
   }
   if (typeof window.fbq === 'function') {
     window.fbq('trackCustom', event, payload);
+    if (META_CONTACT_EVENTS.includes(event)) window.fbq('track', 'Contact', payload);
   }
 }

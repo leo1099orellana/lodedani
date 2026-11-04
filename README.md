@@ -16,7 +16,7 @@ npm run images    # genera AVIF/WebP a partir de public/assets/img/originals/
 
 Todo lo editable vive en `src/data/`, sin tocar JSX:
 
-- `site.js` — marca, teléfono/WhatsApp, horarios, barrios de delivery, dirección, Instagram, SEO (title/description/keywords), IDs de tracking (GA4/Meta Pixel).
+- `site.js` — marca, teléfono/WhatsApp, horarios, barrios de delivery, dirección, Instagram, SEO (title/description/keywords), ID de GA4.
 - `menu.js` — la carta completa, por categoría.
 - `combos.js` — las promos.
 - `popular.js` — los slides de "Los más pedidos".
@@ -44,7 +44,8 @@ Buscá `[corchetes]` en el código y reemplazá:
 - **Años de cocina** (`[X]`): `src/data/site.js` (`yearsCooking`).
 - **Foto de Dani**: en `src/components/About.jsx` hoy hay una foto de tarta de calabaza; reemplazarla si aparece una de Dani.
 - **Reseñas reales** (opcional): cargarlas en `src/data/reviews.js`; mientras esté vacío, la sección no se muestra.
-- **IDs de GA4 / Meta Pixel**: `src/data/site.js` (`tracking.ga4Id`, `tracking.metaPixelId`). Mientras estén en `null` no se carga ningún script de terceros.
+- **ID de GA4**: `src/data/site.js` (`tracking.ga4Id`). Mientras esté en `null` no se carga.
+- **Meta Pixel**: ya está activo, pegado con el código oficial antes de `</head>` en `index.html`. Los clics a WhatsApp y el envío del formulario de pedido se mandan como evento `Contact`.
 
 ## SEO técnico ya resuelto
 

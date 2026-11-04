@@ -39,9 +39,9 @@ export const site = {
     ogImage: '/og-image.jpg',
   },
 
-  // IDs de tracking: dejar en null para no cargar ningún script de terceros.
+  // ID de GA4: dejar en null para no cargarlo.
+  // El Meta Pixel no se configura acá: está pegado en index.html.
   tracking: {
     ga4Id: null, // ej: 'G-XXXXXXXXXX'
-    metaPixelId: null, // ej: '000000000000000'
   },
 };
