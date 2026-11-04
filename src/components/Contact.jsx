@@ -22,7 +22,8 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const detail = `Nombre: ${form.name} | Barrio y dirección: ${form.neighborhood} | Pedido: ${form.order}`;
-    track('submit_pedido', { name: form.name, neighborhood: form.neighborhood });
+    // Sin nombre ni dirección: Meta no permite recibir datos personales en los eventos.
+    track('submit_pedido', { origin: 'formulario' });
     window.open(whatsappLink(detail), '_blank', 'noopener,noreferrer');
   };
 
